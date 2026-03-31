@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ResumeCraft - Turn Your Resume Into a Stunning Portfolio</title>
+  <meta name="description" content="Upload your resume and instantly generate a beautiful, professional portfolio website with live editing and Bootstrap themes."/>
+  <link id="bootstrap-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="landing-body">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <div class="brand-icon"><i class="bi bi-file-earmark-person-fill"></i></div>
+        <span class="fw-800">Resume<span class="text-warning">Craft</span></span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#themes">Themes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
+          <li class="nav-item ms-2">
+            <a href="login.html" class="btn btn-outline-light btn-sm px-3" id="navLoginBtn">
+              <i class="bi bi-person-circle me-1"></i>Login
+            </a>
+          </li>
+          <li class="nav-item" id="navDashboardItem" style="display:none;">
+            <a href="dashboard.html" class="btn btn-warning btn-sm px-3 fw-600">
+              <i class="bi bi-grid me-1"></i>Dashboard
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="container text-center position-relative">
+      <div class="badge-pill mb-4 animate-fadeInDown">
+        <i class="bi bi-stars me-1"></i> AI-Powered Resume Converter
+      </div>
+      <h1 class="hero-title animate-fadeInUp">
+        Turn Your Resume Into a<br/>
+        <span class="gradient-text">Stunning Portfolio</span>
+      </h1>
+      <p class="hero-subtitle animate-fadeIn">
+        Upload your PDF/DOCX resume. Our AI extracts your information, fills it into a beautiful portfolio, and lets you customize it with 15+ Bootstrap themes — all in seconds.
+      </p>
+      <div class="hero-cta d-flex gap-3 justify-content-center flex-wrap animate-fadeInUp">
+        <a href="dashboard.html" class="btn btn-hero-primary">
+          <i class="bi bi-cloud-upload me-2"></i>Upload Resume — It's Free
+        </a>
+        <a href="#how-it-works" class="btn btn-hero-secondary">
+          <i class="bi bi-play-circle me-2"></i>See How It Works
+        </a>
+      </div>
+      <div class="hero-stats d-flex justify-content-center gap-5 mt-5 animate-fadeIn">
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Bootstrap Themes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">< 5s</div>
+          <div class="stat-label">Parse Time</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Free to Use</div>
+        </div>
+      </div>
+
+      <!-- Floating Preview Card -->
+      <div class="hero-preview-card mt-5 animate-float">
+        <div class="preview-browser">
+          <div class="browser-bar">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">resumecraft.app/portfolio/john-doe</div>
+          </div>
+          <div class="preview-content">
+            <div class="mini-portfolio">
+              <div class="mini-avatar"></div>
+              <div class="mini-name"></div>
+              <div class="mini-title"></div>
+              <div class="mini-tags">
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <div class="mini-cards">
+                <div class="mini-card"></div>
+                <div class="mini-card"></div>
+                <div class="mini-card"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section py-6">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <span class="section-badge">✨ Features</span>
+        <h2 class="section-title">Everything You Need</h2>
+        <p class="section-subtitle">From upload to share — a complete portfolio solution</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon bg-gradient-primary">
+              <i class="bi bi-file-earmark-arrow-up-fill"></i>
+            </div>
+            <h4>Smart Resume Parser</h4>
+            <p>Upload PDF or DOCX resumes. Our parser automatically extracts name, skills, projects, experience, education, and contact details.</p>
+            <ul class="feature-list">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>PDF & DOCX support</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Accurate data extraction</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Drag & drop upload</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card h-100 featured">
+            <div class="featured-badge">Most Popular</div>
+            <div class="feature-icon bg-gradient-warning">
+              <i class="bi bi-layout-split"></i>
+            </div>
+            <h4>Live Split Editor</h4>
+            <p>Edit your portfolio in real-time. The left panel is your editor, the right panel shows an instant live preview that updates as you type.</p>
+            <ul class="feature-list">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Instant live preview</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Dynamic sections</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Image upload</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card h-100">
+            <div class="feature-icon bg-gradient-info">
+              <i class="bi bi-palette-fill"></i>
+            </div>
+            <h4>15+ Bootstrap Themes</h4>
+            <p>Choose from 15+ Bootswatch themes. Switch themes instantly and see your portfolio transform with different color schemes and styles.</p>
+            <ul class="feature-list">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Flatly, Darkly, Cyborg</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Lux, Vapor, Quartz</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Instant theme switching</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="feature-card-mini">
+            <i class="bi bi-link-45deg fs-2 text-primary"></i>
+            <h6>Shareable Links</h6>
+            <p>Get a unique public URL for your portfolio</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="feature-card-mini">
+            <i class="bi bi-download fs-2 text-success"></i>
+            <h6>Download as HTML</h6>
+            <p>Export your portfolio as a standalone HTML file</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="feature-card-mini">
+            <i class="bi bi-github fs-2 text-dark"></i>
+            <h6>GitHub Integration</h6>
+            <p>Auto-import your GitHub repositories</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="feature-card-mini">
+            <i class="bi bi-bar-chart-fill fs-2 text-warning"></i>
+            <h6>Analytics</h6>
+            <p>Track how many people view your portfolio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Themes Section -->
+  <section id="themes" class="themes-section py-6">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <span class="section-badge">🎨 Themes</span>
+        <h2 class="section-title">15+ Beautiful Bootstrap Themes</h2>
+        <p class="section-subtitle">Powered by Bootswatch — professional themes with one click</p>
+      </div>
+      <div class="theme-grid" id="themeShowcase">
+        <!-- Themes rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="how-section py-6">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <span class="section-badge">🚀 Process</span>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">From resume to portfolio in 4 simple steps</p>
+      </div>
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <div class="steps-container">
+            <div class="step-item active" data-step="1">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h5>Upload Your Resume</h5>
+                <p>Drag & drop your PDF or DOCX resume file. We support all standard formats.</p>
+              </div>
+            </div>
+            <div class="step-item" data-step="2">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h5>AI Extracts Your Data</h5>
+                <p>Our parser automatically extracts your name, skills, experience, projects, and education.</p>
+              </div>
+            </div>
+            <div class="step-item" data-step="3">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h5>Edit & Choose Theme</h5>
+                <p>Customize your portfolio in the live editor and select from 15+ Bootstrap themes.</p>
+              </div>
+            </div>
+            <div class="step-item" data-step="4">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h5>Save & Share</h5>
+                <p>Get a unique shareable link or download your portfolio as an HTML file.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="how-visual">
+            <div class="visual-card animate-float">
+              <div class="vc-header">
+                <div class="vc-dots"><span></span><span></span><span></span></div>
+                <span>portfolio.html</span>
+              </div>
+              <div class="vc-body">
+                <div class="vc-avatar"></div>
+                <div class="vc-text">
+                  <div class="vc-line w-60"></div>
+                  <div class="vc-line w-40"></div>
+                </div>
+                <div class="vc-skills">
+                  <span>React</span><span>Node.js</span><span>Python</span>
+                </div>
+                <div class="vc-cards">
+                  <div class="vc-card"></div>
+                  <div class="vc-card"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section py-6">
+    <div class="container text-center">
+      <div class="cta-card">
+        <h2 class="fw-800 fs-1 mb-3">Ready to Build Your Portfolio?</h2>
+        <p class="fs-5 mb-4 opacity-75">Join thousands of professionals who've converted their resume into a stunning portfolio.</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="dashboard.html" class="btn btn-light btn-lg px-5 fw-600">
+            <i class="bi bi-rocket-takeoff me-2"></i>Get Started Free
+          </a>
+          <a href="login.html" class="btn btn-outline-light btn-lg px-5">
+            <i class="bi bi-google me-2"></i>Sign In with Google
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-section py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="bi bi-file-earmark-person-fill text-warning fs-4"></i>
+            <span class="fw-700 fs-5">Resume<span class="text-warning">Craft</span></span>
+          </div>
+          <p class="text-muted small">Turn your resume into a beautiful portfolio in seconds.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="d-flex gap-3 justify-content-center">
+            <a href="#" class="footer-social"><i class="bi bi-github"></i></a>
+            <a href="#" class="footer-social"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="footer-social"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <small class="text-muted">© 2024 ResumeCraft. Built with ❤️ and Bootstrap</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('mainNav');
+      if (window.scrollY > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+
+    // Theme showcase data
+    const themes = [
+      { name: 'flatly', label: 'Flatly', desc: 'Clean & Minimal', color: '#18bc9c', type: 'light' },
+      { name: 'darkly', label: 'Darkly', desc: 'Developer Dark', color: '#375a7f', type: 'dark' },
+      { name: 'cyborg', label: 'Cyborg', desc: 'High-Tech', color: '#2a9fd6', type: 'dark' },
+      { name: 'lux', label: 'Lux', desc: 'Modern Elegant', color: '#1a1a1a', type: 'light' },
+      { name: 'pulse', label: 'Pulse', desc: 'Colorful Bold', color: '#593196', type: 'light' },
+      { name: 'morph', label: 'Morph', desc: 'Soft & Modern', color: '#378dfc', type: 'light' },
+      { name: 'vapor', label: 'Vapor', desc: 'Neon Synthwave', color: '#6f42c1', type: 'dark' },
+      { name: 'quartz', label: 'Quartz', desc: 'Premium Blue', color: '#6ea8fe', type: 'light' },
+      { name: 'superhero', label: 'Superhero', desc: 'Bold & Bright', color: '#df6919', type: 'dark' },
+      { name: 'sketchy', label: 'Sketchy', desc: 'Hand-drawn', color: '#333', type: 'light' },
+      { name: 'cosmo', label: 'Cosmo', desc: 'Clean White', color: '#2780e3', type: 'light' },
+      { name: 'united', label: 'United', desc: 'Orange Energy', color: '#e95420', type: 'light' },
+      { name: 'slate', label: 'Slate', desc: 'Muted Dark', color: '#3a3f44', type: 'dark' },
+      { name: 'solar', label: 'Solar', desc: 'Warm Dark', color: '#b58900', type: 'dark' },
+      { name: 'minty', label: 'Minty', desc: 'Fresh & Clean', color: '#78c2ad', type: 'light' },
+    ];
+
+    const showcase = document.getElementById('themeShowcase');
+    showcase.innerHTML = themes.map(t => `
+      <div class="theme-card" onclick="previewTheme('${t.name}')">
+        <div class="theme-preview" style="background:${t.color}">
+          <div class="theme-preview-bar"></div>
+          <div class="theme-preview-lines">
+            <div></div><div></div><div></div>
+          </div>
+          <span class="theme-type-badge ${t.type}">${t.type === 'dark' ? '🌙 Dark' : '☀️ Light'}</span>
+        </div>
+        <div class="theme-info">
+          <strong>${t.label}</strong>
+          <span>${t.desc}</span>
+        </div>
+      </div>
+    `).join('');
+
+    // Auth check for nav
+    const token = localStorage.getItem('rc_token');
+    if (token) {
+      document.getElementById('navLoginBtn').style.display = 'none';
+      document.getElementById('navDashboardItem').style.display = 'block';
+    }
+
+    // Smooth steps animation
+    const stepItems = document.querySelectorAll('.step-item');
+    let currentStep = 0;
+    setInterval(() => {
+      stepItems.forEach(s => s.classList.remove('active'));
+      stepItems[currentStep].classList.add('active');
+      currentStep = (currentStep + 1) % stepItems.length;
+    }, 2000);
+  </script>
+</body>
+</html>
