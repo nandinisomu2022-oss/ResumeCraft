@@ -38,11 +38,15 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
 // Session (for Passport)
+const mongoUrl = process.env.MONGODB_URI || process.env.MONGODB_LOCAL_URI;
+if (!mongoUrl) {
+  throw new Error('MONGODB_URI or MONGODB_LOCAL_URI must be defined in .env file');
+}
 app.use(session({
   secret: process.env.SESSION_SECRET || 'resumecraft_session_secret',
   resave: false,
   saveUninitialized: false,
-  store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+  store: MongoStore.create({ mongoUrl }),
   cookie: { secure: process.env.NODE_ENV === 'production', maxAge: 7 * 24 * 60 * 60 * 1000 },
 }));
 
