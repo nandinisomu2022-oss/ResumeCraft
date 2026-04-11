@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const fromResume = params.get('fromResume') === 'true';
 
   buildThemeSelector();
+  buildThemesGrid();
   buildSuggestedSkills();
   initSkillsInput();
   initResizeHandle();
@@ -162,10 +163,42 @@ function buildThemeSelector() {
   `).join('');
 }
 
+function buildThemesGrid() {
+  const grid = document.getElementById('themesGrid');
+  if (!grid) return;
+  
+  grid.innerHTML = THEMES.map(t => `
+    <div class="theme-card ${t.name === state.currentTheme ? 'active' : ''}"
+         onclick="selectThemeFromGrid('${t.name}', this)" id="theme-card-${t.name}">
+      <div class="theme-card-preview theme-${t.name}"></div>
+      <div class="theme-card-name">${t.label}</div>
+      <div class="theme-card-desc">${t.dark ? '🌙 Dark' : '☀️ Light'}</div>
+    </div>
+  `).join('');
+}
+
+function selectThemeFromGrid(themeName, el) {
+  state.currentTheme = themeName;
+  document.querySelectorAll('.theme-card').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  
+  // Also update the theme selector in design tab
+  document.querySelectorAll('.theme-option').forEach(opt => opt.classList.remove('selected'));
+  document.getElementById('theme-opt-' + themeName)?.classList.add('selected');
+  
+  updatePreview();
+  markDirty();
+}
+
 function selectTheme(themeName, updatePrev = true) {
   state.currentTheme = themeName;
   document.querySelectorAll('.theme-option').forEach(el => el.classList.remove('selected'));
   document.getElementById('theme-opt-' + themeName)?.classList.add('selected');
+  
+  // Also update the themes grid in themes tab
+  document.querySelectorAll('.theme-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('theme-card-' + themeName)?.classList.add('active');
+  
   if (updatePrev) updatePreview();
   markDirty();
 }
@@ -783,6 +816,7 @@ document.addEventListener('DOMContentLoaded', () => {
 window.updatePreview = updatePreview;
 window.switchPanelTab = switchPanelTab;
 window.selectTheme = selectTheme;
+window.selectThemeFromGrid = selectThemeFromGrid;
 window.selectTemplate = selectTemplate;
 window.addProject = addProject;
 window.removeProject = removeProject;
