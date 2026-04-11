@@ -12,10 +12,8 @@ const connectDB = require('./config/db');
 const passport = require('./config/passport');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
-// Connect to DB
-connectDB();
 
 // Security Middleware
 app.use(helmet({ crossOriginEmbedderPolicy: false, contentSecurityPolicy: false }));
@@ -84,10 +82,25 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`\n🚀 ResumeCraft Server running on port ${PORT}`);
-  console.log(`📡 API: http://localhost:${PORT}/api`);
-  console.log(`🌐 Client: http://localhost:${PORT}\n`);
-});
+const startServer = async () => {
+  await connectDB();
+
+  const server = app.listen(PORT, () => {
+    console.log(`\n🚀 ResumeCraft Server running on port ${PORT}`);
+    console.log(`📡 API: http://localhost:${PORT}/api`);
+    console.log(`🌐 Client: http://localhost:${PORT}\n`);
+  });
+
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.error(`\n❌ Port ${PORT} is already in use. Please stop the process using this port or set a different PORT in your .env file.`);
+    } else {
+      console.error('❌ Server startup error:', err);
+    }
+    process.exit(1);
+  });
+};
+
+startServer();
 
 module.exports = app;

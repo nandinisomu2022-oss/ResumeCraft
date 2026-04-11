@@ -48,19 +48,42 @@ const uploadResume = multer({ storage: resumeStorage, fileFilter: resumeFilter, 
 const uploadProfile = multer({ storage: profileStorage, fileFilter: imageFilter, limits: { fileSize: 5 * 1024 * 1024 } });
 
 // @route   POST /api/upload/resume
-// @desc    Upload and parse resume
+// @desc    Upload resume, parse it, and create a portfolio from the data
 router.post('/resume', protect, uploadResume.single('resume'), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ success: false, message: 'No file uploaded' });
 
     const filePath = req.file.path;
     const parsed = await parseResume(filePath);
+    const resumeUrl = `/uploads/resumes/${req.file.filename}`;
 
-    res.json({
+    const portfolio = await Portfolio.create({
+      userId: req.user._id,
+      name: parsed.name || `${req.user.name || 'My'} Portfolio`,
+      title: parsed.title || '',
+      about: parsed.about || '',
+      email: parsed.email || '',
+      phone: parsed.phone || '',
+      github: parsed.github || '',
+      linkedin: parsed.linkedin || '',
+      skills: parsed.skills || [],
+      experience: parsed.experience || [],
+      education: parsed.education || [],
+      projects: parsed.projects || [],
+      resumeFile: resumeUrl,
+      isPublic: true,
+      theme: 'flatly',
+      templateId: 'classic',
+    });
+
+    await require('../models/User').findByIdAndUpdate(req.user._id, { $inc: { portfolioCount: 1 } });
+
+    res.status(201).json({
       success: true,
-      message: 'Resume parsed successfully',
+      message: 'Resume uploaded and portfolio created successfully',
       data: parsed,
-      filePath: `/uploads/resumes/${req.file.filename}`,
+      portfolio,
+      resumeFile: resumeUrl,
     });
   } catch (err) {
     console.error('Upload error:', err.message);

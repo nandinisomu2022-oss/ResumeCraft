@@ -228,9 +228,13 @@ async function generatePortfolio() {
 
     if (!data.success) throw new Error(data.message);
 
-    // Save parsed data and redirect to editor
-    sessionStorage.setItem('parsed_resume', JSON.stringify(data.data));
-    setTimeout(() => { window.location.href = 'editor.html?new=true&fromResume=true'; }, 500);
+    const portfolioId = data.portfolio?._id;
+    if (portfolioId) {
+      window.location.href = `editor.html?id=${portfolioId}`;
+    } else {
+      sessionStorage.setItem('parsed_resume', JSON.stringify(data.data));
+      setTimeout(() => { window.location.href = 'editor.html?new=true&fromResume=true'; }, 500);
+    }
   } catch (err) {
     clearInterval(progressInterval);
     progressDiv.classList.add('d-none');
