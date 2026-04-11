@@ -674,7 +674,33 @@ async function downloadPortfolioHTML() {
     alert('Save your portfolio first before downloading');
     return;
   }
-  window.open(`${API_BASE}/portfolio/${state.portfolioId}/download?token=${Auth.getToken()}`, '_blank');
+  
+  try {
+    const response = await fetch(`${API_BASE}/portfolio/${state.portfolioId}/download`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${Auth.getToken()}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error('Download failed');
+    }
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${state.portfolioName || 'portfolio'}_resume.html`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  } catch (error) {
+    console.error('Download error:', error);
+    alert('Failed to download portfolio. Please try again.');
+  }
 }
 
 // ===== FULLSCREEN PREVIEW =====
