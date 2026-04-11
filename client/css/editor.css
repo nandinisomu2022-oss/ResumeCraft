@@ -1,7 +1,7 @@
-Here is a professional CSS for your portfolio editor with a violet and dark color theme, featuring a sleek workspace, smooth animations, and excellent usability.
+Here is the updated CSS with complete styling for all input fields in the Experience, Projects, Education, and other sections, ensuring a consistent professional look across the entire editor.
 ```css
 /* style.css - ResumeCraft Portfolio Editor */
-/* Violet & Dark Professional Theme */
+/* Violet & Dark Professional Theme - Complete Input Field Styling */
 
 :root {
     --violet-primary: #7c3aed;
@@ -172,7 +172,11 @@ body.editor-body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Field Groups */
+/* ============================================ */
+/* UNIVERSAL INPUT FIELD STYLES - COMPLETE */
+/* ============================================ */
+
+/* Base Input Styles */
 .field-group {
     margin-bottom: 1.25rem;
 }
@@ -186,6 +190,11 @@ body.editor-body {
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+}
+
+.field-label i {
+    font-size: 0.9rem;
 }
 
 .field-input {
@@ -205,35 +214,289 @@ body.editor-body {
     box-shadow: 0 0 0 2px var(--violet-glow);
 }
 
+.field-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.5;
+}
+
 .field-textarea {
     resize: vertical;
     min-height: 100px;
+    font-family: inherit;
 }
 
-/* Profile Upload */
-.profile-upload-area {
+/* Input Group (with buttons) */
+.input-group {
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 0;
+}
+
+.input-group .field-input {
+    border-radius: 10px 0 0 10px;
+}
+
+.input-group .btn-primary-custom {
+    border-radius: 0 10px 10px 0;
+    margin: 0;
+}
+
+/* ============================================ */
+/* PROJECT CARD INPUTS */
+/* ============================================ */
+.project-card, 
+.exp-card, 
+.edu-card {
     background: var(--dark-elevated);
-    border-radius: 16px;
     border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
 }
 
-.profile-img-preview {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--violet-primary), var(--violet-light));
+.project-card:hover, 
+.exp-card:hover, 
+.edu-card:hover {
+    border-color: var(--violet-primary);
+    background: rgba(124, 58, 237, 0.03);
+}
+
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header-row h6 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--violet-soft);
+}
+
+.card-header-row h6 i {
+    margin-right: 0.5rem;
+}
+
+/* Project Input Fields */
+.project-card .field-input,
+.exp-card .field-input,
+.edu-card .field-input {
+    margin-bottom: 0.75rem;
+}
+
+.project-card .field-label,
+.exp-card .field-label,
+.edu-card .field-label {
+    font-size: 0.7rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Project Tech Stack Tags */
+.project-tech-tags,
+.exp-skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.tech-tag {
+    background: rgba(124, 58, 237, 0.15);
+    border: 1px solid var(--border-color);
+    color: var(--violet-soft);
+    padding: 0.25rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.tech-tag .remove-tag {
+    cursor: pointer;
+    opacity: 0.7;
+    font-size: 0.7rem;
+}
+
+.tech-tag .remove-tag:hover {
+    opacity: 1;
+    color: var(--danger);
+}
+
+/* Add Tech Input */
+.add-tech-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.add-tech-input input {
+    flex: 1;
+    background: var(--dark-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.75rem;
+    color: var(--text-primary);
+}
+
+.add-tech-input input:focus {
+    outline: none;
+    border-color: var(--violet-primary);
+}
+
+.add-tech-input button {
+    background: var(--violet-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.add-tech-input button:hover {
+    background: var(--violet-light);
+}
+
+/* Project Link Input */
+.project-link-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.project-link-input input {
+    flex: 1;
+}
+
+/* ============================================ */
+/* EXPERIENCE CARD SPECIFIC */
+/* ============================================ */
+.exp-date-row {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.exp-date-row .field-group {
+    flex: 1;
+}
+
+/* Bullet Points for Responsibilities */
+.responsibilities-list {
+    margin-top: 0.5rem;
+}
+
+.responsibility-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: white;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: var(--dark-surface);
+    padding: 0.4rem 0.7rem;
+    border-radius: 8px;
 }
 
-/* Skills Input */
+.responsibility-item input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+}
+
+.responsibility-item input:focus {
+    outline: none;
+}
+
+.responsibility-item .remove-resp {
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.responsibility-item .remove-resp:hover {
+    color: var(--danger);
+}
+
+.add-responsibility-btn {
+    background: transparent;
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 0.5rem;
+    width: 100%;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+}
+
+.add-responsibility-btn:hover {
+    border-color: var(--violet-primary);
+    color: var(--violet-primary);
+}
+
+/* ============================================ */
+/* EDUCATION CARD SPECIFIC */
+/* ============================================ */
+.edu-date-row {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.edu-date-row .field-group {
+    flex: 1;
+}
+
+/* ============================================ */
+/* BUTTON STYLES */
+/* ============================================ */
+.btn-icon-sm {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.btn-icon-sm:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.btn-icon-sm.edit:hover {
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--violet-primary);
+}
+
+/* Section Header Buttons */
+.section-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-header-row h6 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+/* ============================================ */
+/* SKILLS INPUT AREA */
+/* ============================================ */
 .skills-input-area {
     background: var(--dark-elevated);
     border: 1px solid var(--border-color);
@@ -282,10 +545,15 @@ body.editor-body {
     outline: none;
 }
 
+.skills-text-input::placeholder {
+    color: var(--text-muted);
+}
+
 .suggested-skills {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin-top: 0.75rem;
 }
 
 .suggested-skill {
@@ -301,59 +569,45 @@ body.editor-body {
 .suggested-skill:hover {
     background: var(--violet-primary);
     border-color: var(--violet-primary);
+    color: white;
 }
 
-/* Section Headers */
-.section-header-row {
+/* ============================================ */
+/* PROFILE UPLOAD AREA */
+/* ============================================ */
+.profile-upload-area {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-/* Project/Experience Cards */
-.project-card, .exp-card, .edu-card {
-    background: var(--dark-elevated);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    gap: 1rem;
     padding: 1rem;
-    margin-bottom: 1rem;
-    transition: all 0.2s ease;
+    background: var(--dark-elevated);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
 }
 
-.project-card:hover, .exp-card:hover, .edu-card:hover {
-    border-color: var(--violet-primary);
-}
-
-.card-header-row {
+.profile-img-preview {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--violet-primary), var(--violet-light));
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.75rem;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    overflow: hidden;
 }
 
-.card-header-row h6 {
-    margin: 0;
-    font-weight: 600;
+.profile-img-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.btn-icon-sm {
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    padding: 0.25rem;
-    border-radius: 6px;
-    transition: all 0.2s;
-}
-
-.btn-icon-sm:hover {
-    color: var(--danger);
-    background: rgba(239, 68, 68, 0.1);
-}
-
-/* Theme Selector */
+/* ============================================ */
+/* THEME & TEMPLATE SELECTORS */
+/* ============================================ */
 .theme-selector-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -388,7 +642,11 @@ body.editor-body {
     margin-bottom: 0.5rem;
 }
 
-/* Template Grid */
+.theme-name {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
 .template-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -418,7 +676,6 @@ body.editor-body {
     width: 100%;
     height: 80px;
     border-radius: 8px;
-    background: var(--dark-surface);
     margin-bottom: 0.5rem;
 }
 
@@ -426,7 +683,14 @@ body.editor-body {
 .minimal-prev { background: linear-gradient(135deg, #f5f5f5, #e0e0e0); }
 .sidebar-prev { background: linear-gradient(90deg, #667eea 30%, #f5f5f5 30%); }
 
-/* Resize Handle */
+.template-card span {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+/* ============================================ */
+/* RESIZE HANDLE & PREVIEW */
+/* ============================================ */
 .resize-handle {
     width: 6px;
     background: var(--border-color);
@@ -449,7 +713,6 @@ body.editor-body {
     background: repeating-linear-gradient(180deg, var(--text-muted) 0px, var(--text-muted) 4px, transparent 4px, transparent 8px);
 }
 
-/* Right Preview Panel */
 .editor-preview {
     flex: 1;
     display: flex;
@@ -553,7 +816,9 @@ body.editor-body {
     height: 100%;
 }
 
-/* Buttons */
+/* ============================================ */
+/* BUTTON STYLES (GLOBAL) */
+/* ============================================ */
 .btn-primary-custom {
     background: linear-gradient(135deg, var(--violet-primary), var(--violet-primary-dark));
     border: none;
@@ -563,11 +828,16 @@ body.editor-body {
     font-weight: 500;
     color: white;
     transition: all 0.2s ease;
+    cursor: pointer;
 }
 
 .btn-primary-custom:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 12px var(--violet-glow);
+}
+
+.btn-primary-custom:active {
+    transform: translateY(0);
 }
 
 .btn-outline-primary {
@@ -578,6 +848,7 @@ body.editor-body {
     font-size: 0.85rem;
     color: var(--text-secondary);
     transition: all 0.2s;
+    cursor: pointer;
 }
 
 .btn-outline-primary:hover {
@@ -593,9 +864,121 @@ body.editor-body {
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
     color: var(--text-secondary);
+    cursor: pointer;
 }
 
-/* Scrollbar */
+.btn-outline-secondary:hover {
+    background: var(--dark-hover);
+    color: var(--text-primary);
+}
+
+/* Form Switch (Toggle) */
+.form-switch .form-check-input {
+    background-color: var(--dark-elevated);
+    border-color: var(--border-color);
+}
+
+.form-switch .form-check-input:checked {
+    background-color: var(--violet-primary);
+    border-color: var(--violet-primary);
+}
+
+.form-check-label {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+/* ============================================ */
+/* DYNAMIC CARDS (Projects, Experience, etc) */
+/* ============================================ */
+.dynamic-card {
+    background: var(--dark-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.dynamic-card:hover {
+    border-color: var(--violet-primary);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+}
+
+.dynamic-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: var(--dark-surface);
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background 0.2s ease;
+    user-select: none;
+}
+
+.dynamic-card-header:hover {
+    background: var(--dark-hover);
+}
+
+.dynamic-card-header h6 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    word-break: break-word;
+}
+
+.dynamic-card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Input fields inside dynamic cards */
+.dynamic-card-body input,
+.dynamic-card-body textarea {
+    background: var(--dark-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    line-height: 1.5;
+}
+
+.dynamic-card-body input::placeholder,
+.dynamic-card-body textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.dynamic-card-body input:hover,
+.dynamic-card-body textarea:hover {
+    border-color: var(--violet-primary);
+    background: var(--dark-hover);
+}
+
+.dynamic-card-body input:focus,
+.dynamic-card-body textarea:focus {
+    outline: none;
+    border-color: var(--violet-primary);
+    background: var(--dark-elevated);
+    box-shadow: 0 0 0 3px var(--violet-glow);
+}
+
+.dynamic-card-body textarea {
+    resize: vertical;
+    min-height: 60px;
+    max-height: 150px;
+}
+
+/* ============================================ */
+/* SCROLLBAR */
+/* ============================================ */
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -614,7 +997,9 @@ body.editor-body {
     background: var(--violet-light);
 }
 
-/* Responsive */
+/* ============================================ */
+/* RESPONSIVE */
+/* ============================================ */
 @media (max-width: 768px) {
     .editor-panel {
         width: 100%;
@@ -635,5 +1020,38 @@ body.editor-body {
     .editor-title-input {
         width: 150px;
     }
+    
+    .exp-date-row,
+    .edu-date-row {
+        flex-direction: column;
+        gap: 0;
+    }
 }
-```
+
+/* ============================================ */
+/* UTILITY CLASSES */
+/* ============================================ */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.text-primary {
+    color: var(--violet-primary) !important;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.small {
+    font-size: 0.75rem;
+}
+
+hr {
+    border-color: var(--border-color);
+    margin: 1rem 0;
+}
