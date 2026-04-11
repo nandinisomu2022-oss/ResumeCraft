@@ -848,6 +848,7 @@ button {
 .dashboard-body {
   min-height: 100vh;
   background: linear-gradient(180deg, #070a14 0%, #05070f 100%);
+  display: flex;
 }
 
 .sidebar {
@@ -857,12 +858,25 @@ button {
   border-right: 1px solid rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(20px);
   padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
 }
 
 .sidebar-brand {
   color: var(--text);
   font-weight: 800;
   margin-bottom: 2rem;
+  flex-shrink: 0;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
 }
 
 .sidebar-link {
@@ -883,6 +897,9 @@ button {
 
 .sidebar-footer {
   margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
 }
 
 .user-mini {
@@ -899,8 +916,11 @@ button {
 }
 
 .dashboard-main {
-  margin-left: 260px;
+  flex: 1;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 .dash-header {
