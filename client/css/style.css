@@ -695,7 +695,7 @@ button {
   border-radius: 32px;
   padding: 2.25rem;
   max-width: 520px;
-  margin: 1rem auto;
+  margin: 0 auto;
   backdrop-filter: blur(30px);
 }
 
@@ -730,7 +730,11 @@ button {
 .auth-container {
   position: relative;
   z-index: 1;
-  padding: 6rem 0 4rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
 }
 
 .welcome-section {
@@ -796,6 +800,10 @@ button {
   justify-content: center;
   gap: 0.75rem;
   color: var(--text);
+  border-radius: 16px;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
 }
 
 .btn-icon,
@@ -907,6 +915,11 @@ button {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+.dashboard-footer {
+  font-size: 0.9rem;
+  color: rgba(238, 242, 255, 0.68);
+}
+
 .dash-header h4,
 .user-name-mini {
   color: var(--text);
@@ -928,13 +941,18 @@ button {
   border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .stat-card:hover,
 .upload-card:hover,
 .tips-card:hover,
 .portfolio-grid-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
 }
 
 .stat-card-icon {
@@ -999,36 +1017,106 @@ button {
   color: #d8b4fe;
 }
 
+.portfolio-grid-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
 .portfolio-card-header {
-  height: 110px;
+  position: relative;
+  min-height: 140px;
+  display: grid;
+  place-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background: linear-gradient(135deg, #8d90b3, #75849e);
+}
+
+.portfolio-card-header img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+}
+
+.portfolio-card-views {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
+  color: #fff;
+  font-size: 0.9rem;
+  backdrop-filter: blur(8px);
 }
 
 .portfolio-card-body {
   padding: 1.4rem;
+  display: grid;
+  gap: 1rem;
+  flex: 1;
 }
 
 .portfolio-card-name {
+  font-size: 1.15rem;
+  font-weight: 700;
   color: #fff;
 }
 
-.portfolio-card-title,
-.empty-state h5 {
-  color: rgba(238, 242, 255, 0.72);
+.portfolio-card-title {
+  color: rgba(238, 242, 255, 0.75);
+  font-size: 0.95rem;
+  min-height: 2.6rem;
 }
 
 .portfolio-card-theme {
-  background: rgba(127, 129, 164, 0.08);
-  color: #b8bad0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(127, 129, 164, 0.12);
+  color: #d8dffc;
+  font-size: 0.82rem;
+  width: fit-content;
+}
+
+.portfolio-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: auto;
+}
+
+.portfolio-card-actions .btn {
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.82rem;
 }
 
 .empty-state {
   text-align: center;
   border-style: dashed;
+  border-width: 1px;
+  padding: 2.5rem 1.5rem;
+  border-color: rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .empty-state-icon {
-  color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 /* Editor */

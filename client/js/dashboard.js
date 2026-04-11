@@ -19,6 +19,7 @@ function initUser() {
   if (!user) return;
   const initials = (user.name || user.email || 'U').split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
   document.getElementById('sidebarName').textContent = user.name || 'User';
+  document.getElementById('dashboardUserLabel').textContent = `Signed in as ${user.name || 'User'}`;
   document.getElementById('pageSubtitle').textContent = `Welcome back, ${user.name?.split(' ')[0] || 'there'}! 👋`;
 
   const sidebarAvatar = document.getElementById('sidebarAvatar');

@@ -20,46 +20,14 @@
     <div class="auth-shape s4"></div>
   </div>
 
-  <!-- Navbar minimal -->
-  <nav class="navbar navbar-dark py-3">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-        <div class="brand-icon"><i class="bi bi-file-earmark-person-fill"></i></div>
-        <span class="fw-800">Resume<span class="text-warning">Craft</span></span>
-      </a>
-      <a href="index.html" class="btn btn-outline-light btn-sm">
-        <i class="bi bi-arrow-left me-1"></i>Back to Home
-      </a>
-    </div>
-  </nav>
-
   <div class="container auth-container">
     <div class="row justify-content-center align-items-center min-vh-100">
-      <!-- Left Side - Welcome Message -->
-      <div class="col-lg-6 d-none d-lg-block">
-        <div class="welcome-section">
-          <h1 class="display-4 fw-bold text-white mb-4">Welcome Back!</h1>
-          <p class="lead text-light opacity-75 mb-4">Sign in to access your portfolio dashboard and create stunning resumes in minutes.</p>
-          <div class="features-list">
-            <div class="feature-item">
-              <i class="bi bi-lightning-charge text-warning me-3"></i>
-              <span>Instant portfolio generation</span>
-            </div>
-            <div class="feature-item">
-              <i class="bi bi-palette text-primary me-3"></i>
-              <span>Beautiful themes & templates</span>
-            </div>
-            <div class="feature-item">
-              <i class="bi bi-share text-success me-3"></i>
-              <span>Easy sharing & export</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Side - Auth Card -->
-      <div class="col-lg-5 col-md-8">
+      <div class="col-xl-5 col-lg-6 col-md-8">
         <div class="auth-card-wrapper animate-fade-in">
+          <div class="text-center mb-4">
+            <h2 class="fw-bold text-white mb-2">Welcome Back</h2>
+            <p class="text-muted mb-0">Sign in to manage your portfolios and generate resumes faster.</p>
+          </div>
       <!-- Tabs: Login / Register -->
       <ul class="nav nav-pills auth-tabs mb-4" id="authTabs">
         <li class="nav-item flex-fill">
@@ -76,16 +44,6 @@
 
       <!-- Alert Area -->
       <div id="authAlert" class="d-none mb-3"></div>
-
-      <!-- Google OAuth Button -->
-      <a href="http://localhost:5000/api/auth/google" class="btn btn-google w-100 mb-3" id="googleLoginBtn">
-        <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" width="20" class="me-2"/>
-        Continue with Google
-      </a>
-
-      <div class="divider-text my-3">
-        <span>or continue with email</span>
-      </div>
 
       <!-- LOGIN FORM -->
       <form id="loginForm" onsubmit="handleLogin(event)">
@@ -107,20 +65,13 @@
           </div>
         </div>
         <button type="submit" class="btn btn-primary-custom w-100" id="loginBtn">
-          <span class="btn-text"><i class="bi bi-box-arrow-in-right me-2"></i>Login to ResumeCraft</span>
+          <span class="btn-text">Login to ResumeCraft</span>
           <span class="btn-loading d-none"><span class="spinner-border spinner-border-sm me-2"></span>Logging in...</span>
         </button>
       </form>
 
       <!-- REGISTER FORM -->
       <form id="registerForm" class="d-none" onsubmit="handleRegister(event)">
-        <div class="mb-3">
-          <label class="form-label fw-500">Full Name</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-person"></i></span>
-            <input type="text" class="form-control" id="regName" placeholder="John Doe" required autocomplete="name"/>
-          </div>
-        </div>
         <div class="mb-3">
           <label class="form-label fw-500">Email Address</label>
           <div class="input-group">
@@ -139,11 +90,18 @@
           </div>
           <div id="passStrength" class="mt-2"></div>
         </div>
-        <div class="mb-4">
+        <div class="mb-3">
           <label class="form-label fw-500">Confirm Password</label>
           <div class="input-group">
             <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
             <input type="password" class="form-control" id="regConfirm" placeholder="Repeat password" required/>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-500">Full Name</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-person"></i></span>
+            <input type="text" class="form-control" id="regName" placeholder="John Doe" required autocomplete="name"/>
           </div>
         </div>
         <div class="form-check mb-3">
@@ -153,18 +111,14 @@
           </label>
         </div>
         <button type="submit" class="btn btn-primary-custom w-100" id="registerBtn">
-          <span class="btn-text"><i class="bi bi-person-plus me-2"></i>Create Free Account</span>
+          <span class="btn-text">Create Free Account</span>
           <span class="btn-loading d-none"><span class="spinner-border spinner-border-sm me-2"></span>Creating account...</span>
         </button>
       </form>
 
       <!-- Trust Badges -->
       <div class="trust-badges mt-4 text-center">
-        <small class="text-muted">
-          <i class="bi bi-shield-lock-fill text-success me-1"></i> Secure Login &nbsp;|&nbsp;
-          <i class="bi bi-eye-slash-fill text-primary me-1"></i> Private &nbsp;|&nbsp;
-          <i class="bi bi-lightning-fill text-warning me-1"></i> Instant Access
-        </small>
+        <small class="text-muted">Secure login • Private access • Instant portfolio creation</small>
       </div>
         </div>
       </div>
